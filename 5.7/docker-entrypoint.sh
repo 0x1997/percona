@@ -6,6 +6,10 @@ if [ "${1:0:1}" = '-' ]; then
 	set -- mysqld "$@"
 fi
 
+if [ -n "$INIT_TOKUDB" ]; then
+	export LD_PRELOAD=/lib64/libjemalloc.so.1
+fi
+
 if [ "$1" = 'mysqld' ]; then
 	# Get config
 	DATADIR="$("$@" --verbose --help --log-bin-index=`mktemp -u` 2>/dev/null | awk '$1 == "datadir" { print $2; exit }')"
@@ -29,7 +33,7 @@ if [ "$1" = 'mysqld' ]; then
 
 		mysql=( mysql --protocol=socket -uroot )
 
-		for i in {30..0}; do
+		for i in {60..0}; do
 			if echo 'SELECT 1' | "${mysql[@]}" &> /dev/null; then
 				break
 			fi
@@ -44,6 +48,11 @@ if [ "$1" = 'mysqld' ]; then
 		if [ -z "$MYSQL_INITDB_SKIP_TZINFO" ]; then
 			# sed is for https://bugs.mysql.com/bug.php?id=20545
 			mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | "${mysql[@]}" mysql
+		fi
+
+		# install TokuDB engine
+		if [ -n "$INIT_TOKUDB" ]; then
+			ps_tokudb_admin --enable
 		fi
 
 		if [ ! -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
