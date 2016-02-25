@@ -1,10 +1,10 @@
 # About this Repo
 
-This is the Git repo of the Docker [official image](https://docs.docker.com/docker-hub/official_repos/) for [percona](https://registry.hub.docker.com/_/percona/). See [the Docker Hub page](https://registry.hub.docker.com/_/percona/) for the full readme on how to use this Docker image and for information regarding contributing and issues.
+This is the Git repo of the Docker for [percona](https://hub.docker.com/r/0x1997/percona/). See [the Docker Hub page](https://hub.docker.com/r/0x1997/percona/) for the full readme on how to use this Docker image and for information regarding contributing and issues.
 
-The full readme is generated over in [0x1997/docs](https://github.com/0x1997/docs), specificially in [0x1997/docs/percona](https://github.com/0x1997/docs/tree/master/percona).
+The full readme is generated over in [docker-library/docs](https://github.com/docker-library/docs), specificially in [docker-library/docs/percona](https://github.com/docker-library/docs/tree/master/percona).
 
-See a change merged here that doesn't show up on the Docker Hub yet? Check [the "library/percona" manifest file in the 0x1997/official-images repo](https://github.com/0x1997/official-images/blob/master/library/percona), especially [PRs with the "library/percona" label on that repo](https://github.com/0x1997/official-images/labels/library%2Fpercona). For more information about the official images process, see the [0x1997/official-images readme](https://github.com/0x1997/official-images/blob/master/README.md).
+See a change merged here that doesn't show up on the Docker Hub yet? Check [the "library/percona" manifest file in the docker-library/official-images repo](https://github.com/docker-library/official-images/blob/master/library/percona), especially [PRs with the "library/percona" label on that repo](https://github.com/docker-library/official-images/labels/library%2Fpercona). For more information about the official images process, see the [docker-library/official-images readme](https://github.com/docker-library/official-images/blob/master/README.md).
 
 [![Travis CI](https://img.shields.io/travis/0x1997/percona/master.svg)](https://travis-ci.org/0x1997/percona/branches)
 
