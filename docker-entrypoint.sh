@@ -7,7 +7,7 @@ if [ "${1:0:1}" = '-' ]; then
 fi
 
 if [ -n "$INIT_TOKUDB" ]; then
-	export LD_PRELOAD=/lib64/libjemalloc.so.1
+	export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.1
 fi
 
 if [ "$1" = 'mysqld' ]; then
